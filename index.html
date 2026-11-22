@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>grun</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%232a78d6'/><path d='M9 20l5-6 4 4 5-7' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="stylesheet" href="style.css?v=20261122163154">
+  <script src="vendor/echarts-5.6.0.min.js"></script>
+</head>
+<body data-version="20261122163154">
+  <header class="top">
+    <div class="brand"><span class="logo"></span>grun</div>
+    <nav id="nav">
+      <a href="#/performance">Performance</a>
+      <a href="#/dashboard">Dashboard</a>
+      <a href="#/workouts">Workouts</a>
+      <a href="#/zones">Zones</a>
+      <a href="#/weather">Weather</a>
+    </nav>
+    <div class="range" id="range">
+      <label for="rangeSel" class="sr">Period</label>
+      <select id="rangeSel" class="btn">
+        <option value="m3">Last 3 months</option>
+        <option value="m6">Last 6 months</option>
+        <option value="m12">Last 12 months</option>
+        <option value="all">All time</option>
+        <option value="from">Since date…</option>
+      </select>
+      <input type="date" id="rangeFrom" class="btn" hidden>
+    </div>
+    <div class="data-state">
+      <span id="badge" class="badge demo">Demo data</span>
+      <button id="lockBtn" class="btn">Unlock</button>
+    </div>
+  </header>
+  <div id="notice" class="notice" hidden></div>
+  <main id="app"><p class="muted pad">Loading…</p></main>
+  <footer class="foot muted" id="foot"></footer>
+
+  <dialog id="unlock">
+    <form method="dialog" id="unlockForm">
+      <h3>Personal data</h3>
+      <p class="muted">The public version shows an artificial runner. Enter the password to decrypt the real data in your browser. Nothing is sent anywhere.</p>
+      <input id="pw" type="password" autocomplete="current-password" placeholder="Password" required>
+      <label class="check"><input type="checkbox" id="remember"> Remember on this device</label>
+      <p id="pwErr" class="err" hidden>Wrong password.</p>
+      <div class="row end">
+        <button type="button" class="btn ghost" id="cancelUnlock">Cancel</button>
+        <button type="submit" class="btn primary" id="doUnlock">Unlock</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="welcome">
+    <h3>Welcome to grun</h3>
+    <p class="muted">This running review site shows an <b>artificial demo runner</b> by default. If you have the password, you can unlock the real training data. It is decrypted in your browser.</p>
+    <div class="row end">
+      <button type="button" class="btn ghost" id="welcomeDemo">View demo data</button>
+      <button type="button" class="btn primary" id="welcomeUnlock">Unlock personal data</button>
+    </div>
+  </dialog>
+  <script type="module" src="app.js?v=20261122163154"></script>
+</body>
+</html>
